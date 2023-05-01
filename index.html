@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src='./dist/panzoom.js'></script>
+    <title>Minorities in Japan</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+
+  <div id="sideBar">
+    <div id="backButton">
+    </div>
+    <div id="title">
+    </div>
+    <div id="image">
+    </div>
+    <div id="description">
+    </div>
+    <div id="about">
+      <p>About</p>
+    </div>
+  </div>
+
+  <body>
+    <svg>
+      <g id="zoomable">
+        <g>
+          <a target="_blank">
+            <image xlink:href="images/map.svg" width="1000" height="1000"></image>
+          </a>
+          <a class="flag" transform="translate(417, 737)">
+            <image id="ikuno_ward" xlink:href="images/korea.jpg" width="30" height="20"></image>
+          </a>
+          <a class="flag" transform="translate(697, 645)">
+            <image id="okubo" xlink:href="images/korea.jpg" width="30" height="20"></image>
+          </a>
+          <a class="flag" transform="translate(883, 890)">
+            <image id="okinawa" xlink:href="images/okinawa.png" width="30" height="20"></image>
+          </a>
+          <a class="flag" transform="translate(713, 160)">
+            <image id="sapporo" xlink:href="images/ainu.png" width="30" height="20"></image>
+          </a>
+          <a class="flag" transform="translate(503, 700)">
+            <image id="nagoya" xlink:href="images/vietnam.png" width="30" height="20"></image>
+          </a>
+          <a class="flag" transform="translate(13, 855)">
+            <image id="nagasaki" xlink:href="images/china.png" width="30" height="20"></image>
+          </a>
+        </g>
+      </g>
+    </svg>
+  </body>
+</html>
+
+<script type="text/javascript">
+  //for zoom functionality
+  var canvas = document.getElementById('zoomable');
+  var panzoom = panzoom(canvas, {
+    bounds: true,
+    minZoom: 0.75,
+    maxZoom: 2.5
+  });
+  var frameWidth = ((window.innerWidth * .7) - 1000) / 2;
+  if (frameWidth > 0) {
+    panzoom.moveTo(frameWidth, 0);
+
+  }
+
+  var backButton = document.getElementById("backButton");
+  var sideBar = document.getElementById("sideBar");
+  var title = document.getElementById("title");
+  var image = document.getElementById("image");
+  var description = document.getElementById("description");
+  var about = document.getElementById("about");
+
+  var ikunoWard = document.getElementById("ikuno_ward");
+  var okubo = document.getElementById("okubo");
+  var okinawa = document.getElementById("okinawa");
+  var sapporo = document.getElementById("sapporo");
+  var nagoya = document.getElementById("nagoya");
+  var nagasaki = document.getElementById("nagasaki");
+
+  ikunoWard.addEventListener("click", onClickIkunoWard);
+  okubo.addEventListener("click", onClickOkubo);
+  okinawa.addEventListener("click", onClickOkinawa);
+  sapporo.addEventListener("click", onClickSapporo);
+  nagoya.addEventListener("click", onClickNagoya);
+  nagasaki.addEventListener("click", onClickNagasaki);
+  backButton.addEventListener("click", onClickBackButton);
+  about.addEventListener("click", onClickAbout);
+
+  title.innerHTML = "<p>Welcome!</p>";
+  description.innerHTML = "<p>This website showcases some of the cultural and ethnic diversity that exists within Japan. Specifically, the locations of prominant gatherings of the following minorities are shown:</p>" +
+    "<ul><li>Ainu</li><li>Zainichi Koreans</li><li>Chinese</li><li>Ryukyan/Okinawans</li><li>Vietnamese</li></ul><p>Flags are used to show which minority is in that locaiton. Clicking on a flag brings up more information on the location and the minority that lives there. To pan on the map, click, hold, and drag. Zooming is enabled through pinching/scrollwheel.<br><br> Have fun exploring! </p>";
+
+  function onClickIkunoWard(event) {
+    about.hidden = true;
+    backButton.innerHTML = "<button>Return Home</button>";
+    title.innerHTML = "<p>Ikuno Ward, Osaka</p>";
+    image.innerHTML = "<img src='images/ikuno_ward.jpg'>";
+    description.innerHTML = "<p>Ikuno Ward is a neighborhood in Osaka, Japan that is home to a large Korean community. However, the Korean minority in Japan has faced a number of struggles and challenges over the years, including discrimination and limited access to opportunities.<br><br>One of the biggest challenges that the Korean minority in Japan has faced is a lack of legal recognition and protection. Despite having lived in Japan for generations, many Koreans are not considered Japanese citizens and are instead classified as \"foreign residents.\" This has led to a range of legal and social inequalities, including limited access to education, employment, and housing.<br><br>Another challenge that the Korean minority in Japan faces is discrimination and prejudice. Korean residents in Ikuno Ward and elsewhere in Japan have reported experiencing discrimination in a range of areas, from job interviews to housing applications. In some cases, this discrimination is overt and explicit, while in other cases it may be more subtle or implicit.<br><br>Despite these challenges, the Korean minority in Ikuno Ward has remained resilient and has built a thriving community that is an important part of the neighborhood's cultural landscape. Korean-owned businesses, restaurants, and shops are a common sight in the Tsuruhashi area, and the community's rich cultural heritage is celebrated through a range of festivals and events.<br><br>Overall, Ikuno Ward is a fascinating neighborhood that offers a glimpse into the struggles and triumphs of the Korean minority in Japan. While the community has faced significant challenges, its resilience and determination have allowed it to thrive and contribute to the cultural diversity of Osaka.</p>";
+  }
+
+  function onClickOkubo(event) {
+    about.hidden = true;
+    backButton.innerHTML = "<button>Return Home</button>";
+    title.innerHTML = "<p>Shin-Okubo, Tokyo</p>";
+    image.innerHTML = "<img src='images/okubo.jpg'>";
+    description.innerHTML = "<p>Shin-Okubo is a bustling district located in Tokyo's Shinjuku area, renowned for its thriving Korean community. However, despite its vibrancy, the Korean minority in Shin-Okubo and elsewhere in Japan have encountered various struggles and hurdles over the years. One of the most significant challenges is the lack of legal recognition and protection. Despite living in Japan for generations, many Koreans are not acknowledged as Japanese citizens and are instead categorized as \"foreign residents.\" This has resulted in legal and social inequities, including restricted access to education, employment, and housing. <br><br>Another major challenge that the Korean minority in Japan faces is discrimination and bias. Korean residents in Shin-Okubo and other regions in Japan have reported instances of discrimination in several areas, including job interviews and housing applications. Such discrimination may be overt and explicit or implicit and subtle.<br><br>Despite these challenges, the Korean community in Shin-Okubo has demonstrated remarkable resilience and has established a thriving cultural and economic hub in the neighborhood. Korean-owned enterprises, eateries, and stores are ubiquitous in the district, and the community's rich cultural heritage is showcased through a diverse range of festivals and events.<br><br>One of the most significant challenges that the Korean community in Shin-Okubo confronts is the threat of gentrification. As the area has become increasingly popular with tourists and younger generations, property values have risen, making it difficult for some Korean-owned businesses to maintain a presence in the area. Additionally, there is apprehension that the neighborhood's cultural heritage could be eroded as the district becomes more commercialized.<br><br>Nonetheless, the Korean community in Shin-Okubo endures as a dynamic and essential component of Tokyo's cultural milieu. The neighborhood's rich history, cultural diversity, and tenacity make it a must-visit destination for anyone interested in exploring the Korean minority's struggles and achievements in Japan.</p>";
+  }
+
+  function onClickOkinawa(event) {
+    about.hidden = true;
+    backButton.innerHTML = "<button>Return Home</button>";
+    title.innerHTML = "<p>Okinawa</p>";
+    image.innerHTML = "<img src='images/okinawa.jpg'>";
+    description.innerHTML = "<p>Okinawa, located in the southernmost part of Japan, is home to the Okinawan/Ryukyuan minority, an indigenous group with a distinct language, culture, and history. For centuries, the Okinawan people have maintained their unique identity, despite facing many challenges and struggles.<br><br>One of the most significant struggles the Okinawan people have faced is the impact of World War II, when the island was occupied by the US military until 1972. During this time, the Okinawan people faced discrimination, violence, and economic hardship, as their land was taken for military use and their culture was suppressed.<br><br>Despite these challenges, the Okinawan people have remained resilient and continue to celebrate their culture and traditions. The island is home to many cultural festivals, including the Eisa dance festival, which celebrates Okinawan music and dance, and the Shuri Castle Festival, which showcases traditional Okinawan crafts and food.<br><br>In addition to its rich cultural heritage, Okinawa is also known for its beautiful natural landscapes and unique flora and fauna. The island is home to many pristine beaches, coral reefs, and forests, and is a popular destination for outdoor enthusiasts and nature lovers.<br><br>Overall, Okinawa is a fascinating destination that offers visitors a glimpse into the unique culture and history of the Okinawan/Ryukyuan minority. While the Okinawan people have faced many struggles over the years, they remain proud of their heritage and continue to celebrate their traditions, making Okinawa a vibrant and resilient community.</p>";
+  }
+
+  function onClickSapporo(event) {
+    about.hidden = true;
+    backButton.innerHTML = "<button>Return Home</button>";
+    title.innerHTML = "<p>Shiraoi Town, Hokkaido</p>";
+    image.innerHTML = "<img src='images/sapporo.jpg'>";
+    description.innerHTML = "<p>Shiraoi town, located southeast of Sapporo, is an important cultural center for the Ainu, the indigenous people of Hokkaido. For centuries, the Ainu have lived in Hokkaido, developing a unique culture and way of life that is closely connected to the natural environment.<br><br>Despite their rich cultural heritage, the Ainu have faced many struggles over the years. Discrimination and marginalization have been common issues, and the Ainu language and traditional practices were actively suppressed by the Japanese government in the 19th and early 20th centuries.<br><br>In recent years, however, there has been a renewed interest in Ainu culture and history, and the Shiraoi town has played an important role in this movement. The Ainu Museum, or Porotokotan, in Shiraoi is dedicated to preserving and showcasing Ainu culture and history, and providing a space for Ainu people to connect with their heritage.<br><br>The museum features exhibits on Ainu art, history, and traditional practices, as well as demonstrations of Ainu music, dance, and craft-making. Visitors to Shiraoi can also experience a replica of a traditional Ainu village, hot spring resorts that incorporate Ainu culture into their design, and Ainu souvenir shops.<br><br>Overall, Shiraoi is an important destination for anyone interested in learning about Ainu culture and history, and supporting the Ainu community. While the Ainu population in Sapporo may not be as visible, Shiraoi provides an opportunity to connect with the rich cultural heritage of this indigenous community, and to learn about the struggles they have faced and continue to face in Japan.</p>";
+  }
+
+  function onClickNagoya(event) {
+    about.hidden = true;
+    backButton.innerHTML = "<button>Return Home</button>";
+    title.innerHTML = "<p>Nagoya</p>";
+    image.innerHTML = "<img src='images/nagoya.jpg'>";
+    description.innerHTML = "<p>Nagoya is a bustling city located in the heart of Japan, known for its vibrant culture and rich history. However, for the Vietnamese minority living there, life can be challenging. Despite being a small community, the Vietnamese population in Nagoya faces various struggles, including language barriers, cultural differences, and discrimination.<br><br>The city is a perfect mix of modern and traditional elements, with towering skyscrapers and ancient temples coexisting side by side. The bustling streets are lined with neon lights and bustling crowds, making for a lively atmosphere. Despite its urban development, Nagoya still retains its old-world charm, with traditional tea houses, shrines, and gardens scattered throughout the city.<br><br>For the Vietnamese community, Nagoya can be both welcoming and challenging. Many Vietnamese residents struggle to adapt to the fast-paced lifestyle and language barrier. The city's competitive job market and high cost of living can also make it challenging for immigrants to establish themselves. Moreover, the Vietnamese minority in Nagoya is also at risk of facing discrimination and prejudice, which can make life even more difficult.<br><br>Despite these challenges, the Vietnamese minority in Nagoya is a vibrant and resilient community that is proud of its cultural heritage. Through their hard work and determination, they have established themselves as an integral part of Nagoya's multicultural landscape. With its unique blend of traditional and modern elements, Nagoya offers a fascinating and dynamic environment for the Vietnamese community to thrive in.</p>";
+  }
+  
+  function onClickNagasaki(event) {
+    about.hidden = true;
+    backButton.innerHTML = "<button>Return Home</button>";
+    title.innerHTML = "<p>Shinchi Chinatown, Nagasaki</p>";
+    image.innerHTML = "<img src='images/nagasaki.jpg'>";
+    description.innerHTML = "<p>Shinchi Chinatown in Nagasaki is a vibrant and bustling neighborhood that is home to one of the largest Chinese communities in Japan. The area is a fascinating blend of Chinese and Japanese cultures, with traditional Chinese architecture and décor mixed in with modern Japanese amenities.<br><br>Despite its lively and festive atmosphere, the Chinese community in Nagasaki, like many other minority groups in Japan, has faced various struggles over the years. Discrimination and prejudice have been common issues, and many Chinese residents have had to work hard to establish themselves in a country that can sometimes be unwelcoming to outsiders.<br><br>Within Shinchi Chinatown, however, the Chinese community has found a welcoming and supportive home. The area is a hub of Chinese culture and activity, with many shops and restaurants offering authentic Chinese cuisine and goods. Visitors to the area can experience traditional Chinese festivals and cultural events, including Chinese New Year celebrations.<br><br>For the Chinese community in Nagasaki, Shinchi Chinatown is a place to celebrate their cultural heritage and connect with others who share their experiences. It is a vibrant and resilient community that has overcome many challenges to establish itself as an integral part of Nagasaki's cultural landscape.<br><br>Overall, Shinchi Chinatown is a fascinating and unique destination that offers visitors a glimpse into the vibrant and diverse Chinese community in Japan. Despite the challenges that the Chinese minority has faced, Shinchi Chinatown remains a shining example of the strength and resilience of this community.</p>";
+  }
+
+  function onClickBackButton(event) {
+    backButton.innerHTML = "";
+    
+    about.hidden = false;
+    title.innerHTML = "<p>Home</p>";
+    image.innerHTML = "";
+    description.innerHTML = "<p>This website showcases some of the cultural and ethnic diversity that exists within Japan. Specifically, the locations of prominant gatherings of the following minorities are shown:</p>" +
+    "<ul><li>Ainu</li><li>Zainichi Koreans</li><li>Chinese</li><li>Ryukyan/Okinawans</li><li>Vietnamese</li></ul><p>Flags are used to show which minority is in that locaiton. Clicking on a flag brings up more information on the location and the minority that lives there. To pan on the map, click, hold, and drag. Zooming is enabled through pinching/scrollwheel.<br><br> Have fun exploring! </p>"
+  }
+
+  function onClickAbout(event) {
+    backButton.innerHTML = "<button>Return Home</button>";
+    about.hidden = true;
+    title.innerHTML = "<p>About</p>";
+    image.innerHTML = "";
+    description.innerHTML = "<p>Sources:<br><br>Meyer, Stanisław. “Between a Forgotten Colony and an Abandoned Prefecture: Okinawa’s Experience of Becoming Japanese in the Meiji and Taishō Eras.” The Asia-Pacific Journal, vol. 18, no. 20, ser. 7, 15 Oct. 2020.<br><br>Siddle, Richard. The Ainu Indigenous people of Japan.<br><br>Rabson, Steve. “Being Okinawan in Japan: The Diaspora Experience.” The Asia-Pacific Journal, vol. 10, no. 12, ser. 2, 12 Mar. 2012.<br><br>Lie, John. Zainichi The Korean Diaspora in Japan.<br><br>Park-Kim Wooki. Ethnic “Korean schools” confront discrimination, hate speech and hate crime.<br><br>Wataru Nakano. More than 40% of children with roots in foreign countries, elementary school in Minami, Osaka \"These children are treasures\".</p>";
+    }
+  
+</script>
